@@ -1,0 +1,17 @@
+{% extends 'posts/base.html' %}
+{% block title %}Publicaciones | Blog de Carlos Mendoza{% endblock %}
+{% block content %}
+<h1>Publicaciones</h1>
+<p>Administrá tus posts desde el sitio: crear, ver, editar o eliminar.</p>
+<div class="acciones"><a class="boton" href="{% url 'posts:crear_post' %}">Nuevo post</a></div>
+{% for post in posts %}
+    <article class="tarjeta">
+        <h2><a href="{% url 'posts:detalle_post' post.pk %}">{{ post.titulo }}</a></h2>
+        <p class="meta">{{ post.autor }} · {{ post.get_estado_display }} · {{ post.fecha_creacion|date:"d/m/Y H:i" }}</p>
+        <p>{{ post.contenido|truncatewords:40 }}</p>
+        <a href="{% url 'posts:detalle_post' post.pk %}">Leer artículo</a>
+    </article>
+{% empty %}
+    <section class="tarjeta"><p>No hay publicaciones todavía. Usá «Nuevo post» para crear la primera.</p></section>
+{% endfor %}
+{% endblock %}

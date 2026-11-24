@@ -1,0 +1,27 @@
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+
+# Variables de entorno y credenciales
+.env
+.env.*
+
+# Base de datos SQLite
+# Se incluye db.sqlite3 con los posts de demostracion
+# Se excluyen archivos temporales de SQLite
+db.sqlite3-journal
+db.sqlite3-wal
+db.sqlite3-shm
+
+# Configuracion local de VS Code
+.vscode/
+
+# Archivos multimedia
+# Se incluyen las imagenes de los posts
+# ubicadas en media/posts/
+# No se excluye la carpeta media/

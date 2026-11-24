@@ -1,0 +1,15 @@
+{% extends 'posts/base.html' %}
+{% block title %}{{ accion }} post | Blog{% endblock %}
+{% block content %}
+<section class="tarjeta">
+    <h1>{{ accion }} publicación</h1>
+    <form method="post" enctype="multipart/form-data" class="formulario">
+        {% csrf_token %}
+        {{ formulario.as_p }}
+        <div class="acciones">
+            <button class="boton" type="submit">Guardar</button>
+            <a href="{% url 'posts:lista_posts' %}">Cancelar</a>
+        </div>
+    </form>
+</section>
+{% endblock %}
